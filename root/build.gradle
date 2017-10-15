@@ -1,0 +1,61 @@
+
+plugins {
+ // id 'com.github.sherter.google-java-format' version '0.6'
+  //id "nebula.ospackage" version "4.4.0"
+	
+}
+
+apply plugin:'java'
+
+repositories {
+    
+    mavenCentral()
+  
+  }
+  
+  subprojects {
+  
+  apply plugin: 'java'
+  apply plugin: 'maven'
+  apply plugin: 'eclipse'
+ 
+  
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  
+ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+  
+  repositories {
+  
+  
+    mavenLocal()
+      mavenCentral()
+    
+    
+  }
+  
+  test {
+		
+        useTestNG()
+    }
+    
+    
+	dependencies {
+		testCompile 'org.testng:testng:6.10'
+		testCompile 'org.mockito:mockito-core:2.7.22'
+		testCompile 'org.springframework:spring-test:4.3.8.RELEASE'
+		testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+		
+		compile group: 'org.apache.logging.log4j', name: 'log4j-api', version:'2.6.1'
+        compile group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.6.1'
+	}
+}
+
+dependencies {
+  
+//compile group: 'com.google.googlejavaformat', name: 'google-java-format', version: '1.4'
+
+}
+

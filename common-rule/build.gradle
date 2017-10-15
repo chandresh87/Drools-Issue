@@ -1,0 +1,32 @@
+group = 'com.rules.common'
+version = '1.0.0'
+
+apply plugin:'java'
+ apply plugin: 'maven'
+ 
+ repositories {
+    mavenLocal()
+    mavenCentral()
+    
+    maven { url "http://repo1.maven.org/maven2/" }
+    maven { url "http://repository.jboss.org/nexus/content/groups/public/" }
+  
+  }
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  
+dependencies {
+    compile group: 'com.application', name: 'rules-domain', version:'1.0.0'
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version:'3.4.0'
+    compile group: 'org.drools', name: 'drools-core', version:'6.4.0.Final'
+    compile group: 'org.drools', name: 'drools-compiler', version:'6.4.0.Final'
+    compile group: 'org.kie', name: 'kie-api', version:'6.4.0.Final'
+    compile group: 'org.mvel', name: 'mvel2', version:'2.3.1.Final'
+  
+    
+    testCompile group: 'org.testng', name: 'testng', version:'6.8'
+    testCompile group: 'org.mockito', name: 'mockito-all', version:'1.9.5'
+    
+}
+
+test.useTestNG()
